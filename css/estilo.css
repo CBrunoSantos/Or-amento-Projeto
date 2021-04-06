@@ -10,3 +10,11 @@ img{
 h1{
     margin-bottom: 7%;
 }
+
+.containerPrincipal{
+    background: rgb(6, 149, 192);
+    padding: 2%;
+    border-radius: 15px;
+    margin-left:20%;
+    margin-right:20%;
+}
