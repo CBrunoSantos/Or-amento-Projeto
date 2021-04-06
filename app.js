@@ -49,7 +49,7 @@ class Bd{
                 continue;
             }
 
-            // console.log(i, despesa);
+            despesa.id = i;
             despesas.push(despesa);
         }
         return despesas;
@@ -88,6 +88,10 @@ class Bd{
         
 
         return despesasFiltradas;
+    }
+
+    remover(id){
+        localStorage.removeItem(id);
     }
 }
 
@@ -172,6 +176,17 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
             linha.insertCell(1).innerHTML = d.tipo;
             linha.insertCell(2).innerHTML = d.descricao;
             linha.insertCell(3).innerHTML = `${d.valor} $$`
+
+            let btn = document.createElement("button");
+            btn.className = 'btn btn-danger';
+            btn.id = d.id;
+            btn.innerHTML = '<i class="fas fa-times"></i>';
+            btn.onclick = function(){
+                bd.remover(this.id);
+                window.location.reload();
+            };
+            linha.insertCell(4).append(btn);
+
         }
     );
 }
